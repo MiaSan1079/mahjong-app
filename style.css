@@ -1,0 +1,78 @@
+/* ベース設定 */
+body {
+  font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* コンテナ中央寄せ */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  margin-top: 40px;
+}
+
+/* タイトル */
+h1 {
+  color: #333;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+/* セクションごと */
+section {
+  margin-bottom: 24px;
+}
+
+/* 小見出し */
+h2 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* 選択肢ボタン */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #d0d0d0;
+}
+
+/* 計算ボタン */
+.calc-btn {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.calc-btn:hover {
+  background-color: #45a049;
+}
+
+/* 結果表示 */
+#result {
+  font-size: 1.2rem;
+  color: #222;
+  margin-top: 10px;
+}

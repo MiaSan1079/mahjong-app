@@ -7,7 +7,7 @@
     {
       "type": "chrome",
       "request": "launch",
-      "name": "localhost に対して Chrome を起動する",
+      "name": "Live Serverで実行",
       "url": "http://127.0.0.1:5500",
       "webRoot": "${workspaceFolder}"
     }

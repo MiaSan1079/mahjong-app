@@ -3,51 +3,104 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>麻雀点数計算アプリ</title>
+    <title>麻雀 自動点数計算アプリ</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <h1>🀄 麻雀点数計算アプリ</h1>
+      <h1>🀄 麻雀 自動点数計算アプリ</h1>
 
-      <section class="player-type">
+      <!-- 牌選択エリア -->
+      <section class="tile-selector">
+        <h2>牌を選択</h2>
+
+        <h3>🟥 マンズ</h3>
+        <div class="tiles">
+          <button class="tile-btn" data-tile="1m">1m</button>
+          <button class="tile-btn" data-tile="2m">2m</button>
+          <button class="tile-btn" data-tile="3m">3m</button>
+          <button class="tile-btn" data-tile="4m">4m</button>
+          <button class="tile-btn" data-tile="5m">5m</button>
+          <button class="tile-btn" data-tile="6m">6m</button>
+          <button class="tile-btn" data-tile="7m">7m</button>
+          <button class="tile-btn" data-tile="8m">8m</button>
+          <button class="tile-btn" data-tile="9m">9m</button>
+        </div>
+
+        <h3>🟦 ピンズ</h3>
+        <div class="tiles">
+          <button class="tile-btn" data-tile="1p">1p</button>
+          <button class="tile-btn" data-tile="2p">2p</button>
+          <button class="tile-btn" data-tile="3p">3p</button>
+          <button class="tile-btn" data-tile="4p">4p</button>
+          <button class="tile-btn" data-tile="5p">5p</button>
+          <button class="tile-btn" data-tile="6p">6p</button>
+          <button class="tile-btn" data-tile="7p">7p</button>
+          <button class="tile-btn" data-tile="8p">8p</button>
+          <button class="tile-btn" data-tile="9p">9p</button>
+        </div>
+
+        <h3>🟩 ソーズ</h3>
+        <div class="tiles">
+          <button class="tile-btn" data-tile="1s">1s</button>
+          <button class="tile-btn" data-tile="2s">2s</button>
+          <button class="tile-btn" data-tile="3s">3s</button>
+          <button class="tile-btn" data-tile="4s">4s</button>
+          <button class="tile-btn" data-tile="5s">5s</button>
+          <button class="tile-btn" data-tile="6s">6s</button>
+          <button class="tile-btn" data-tile="7s">7s</button>
+          <button class="tile-btn" data-tile="8s">8s</button>
+          <button class="tile-btn" data-tile="9s">9s</button>
+        </div>
+
+        <h3>⬜ 字牌</h3>
+        <div class="tiles">
+          <button class="tile-btn" data-tile="東">東</button>
+          <button class="tile-btn" data-tile="南">南</button>
+          <button class="tile-btn" data-tile="西">西</button>
+          <button class="tile-btn" data-tile="北">北</button>
+          <button class="tile-btn" data-tile="白">白</button>
+          <button class="tile-btn" data-tile="發">發</button>
+          <button class="tile-btn" data-tile="中">中</button>
+        </div>
+      </section>
+
+      <!-- ▼ 修正版：手牌表示エリア（1つだけ。種類順に整列表示） -->
+      <section class="hand-display">
+        <h2>選択した手牌</h2>
+        <div id="hand-all" class="tiles"></div>
+      </section>
+
+      <!-- 和了方法 -->
+      <section>
+        <h2>和了方法</h2>
+        <label><input type="radio" name="winType" value="tsumo" /> ツモ</label>
+        <label><input type="radio" name="winType" value="ron" /> ロン</label>
+      </section>
+
+      <!-- 親 / 子 -->
+      <section>
         <h2>親 / 子</h2>
-        <div class="options">
-          <label><input type="radio" name="player" value="oya" /> 親</label>
-          <label><input type="radio" name="player" value="ko" /> 子</label>
-        </div>
+        <label><input type="radio" name="player" value="oya" /> 親</label>
+        <label><input type="radio" name="player" value="ko" /> 子</label>
       </section>
 
-      <section class="fu-section">
-        <h2>符を選択</h2>
-        <div class="buttons">
-          <button>20</button>
-          <button>30</button>
-          <button>40</button>
-          <button>50</button>
-          <button>60</button>
-          <button>70</button>
-        </div>
+      <!-- 自動解析 -->
+      <section class="auto-analysis">
+        <h2>解析結果</h2>
+        <p id="yakuResult">役：ー</p>
+        <p id="hanResult">翻数：ー</p>
+        <p id="fuResult">符：ー</p>
       </section>
 
-      <section class="han-section">
-        <h2>翻を選択</h2>
-        <div class="buttons">
-          <button>1翻</button>
-          <button>2翻</button>
-          <button>3翻</button>
-          <button>4翻</button>
-          <button>5翻以上</button>
-        </div>
-      </section>
-
-      <section class="calc-section">
-        <button class="calc-btn">計算する</button>
+      <!-- 計算 -->
+      <section>
+        <button id="calcBtn">点数を計算する</button>
       </section>
 
       <section class="result-section">
         <h2>結果</h2>
-        <p id="result">ここに点数が表示されます</p>
+        <p id="scoreResult">ここに点数が表示されます</p>
       </section>
     </div>
 

@@ -1,94 +1,153 @@
 body {
-  font-family: "Segoe UI", sans-serif;
-  background: #f7f7f7;
+  font-family: sans-serif;
+  background: #fafafa;
   margin: 0;
-  padding: 0;
+  padding: 20px;
 }
 
 .container {
-  max-width: 650px;
-  background: #fff;
-  margin: 30px auto;
-  padding: 25px;
-  border-radius: 10px;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* タイトル */
-h1 {
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-/* 牌選択エリア */
-.tiles {
+/* ▼ タブ */
+.tile-tabs {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 15px;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 
-.tile-btn {
-  padding: 8px 12px;
-  background: #eee;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.tile-btn:hover {
+.tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
   background: #ddd;
 }
 
-/* 手牌表示（押すと削除） */
-#handTiles .tile-card {
-  padding: 8px 12px;
-  border-radius: 6px;
-  background: #ffe8c4;
-  border: 1px solid #d6a566;
-  cursor: pointer;
+.tab.active {
+  background: #ffe14b;
+  font-weight: bold;
 }
 
-#handTiles .tile-card:hover {
-  background: #ffcf8f;
-}
-
-/* 解析結果表示 */
-.auto-analysis {
-  background: #eef7ff;
-  padding: 15px;
-  border-radius: 6px;
-  margin-top: 20px;
-}
-
-.result-section {
-  background: #fff8db;
-  padding: 15px;
-  border-radius: 6px;
-}
-
-/* ボタン */
-button {
-  background: #007aff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 10px 15px;
-  font-size: 16px;
-}
-
-button:hover {
-  background: #005ecc;
-}
-/* 手牌（整列表示） */
-#hand-all {
-  margin-top: 10px;
-  min-height: 50px;
-  background: #f5f5f5;
-  padding: 10px;
-  border-radius: 6px;
+/* ▼ 牌一覧 */
+.tiles {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 4px;
+}
+
+/* ▼ 面前（横スクロール） */
+.scroll-x {
+  overflow-x: auto;
+  white-space: nowrap;
+  min-height: 50px;
+  padding: 6px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.scroll-x .tile-btn {
+  display: inline-block;
+}
+
+/* ▼ ツモ牌（右側配置） */
+.menzen-tsumo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+#tsumo-tile {
+  width: 75px;
+  height: 75px;
+  border: 3px solid #ffbf00;
+  background: #fff8db;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ▼ 牌ボタン */
+.tile-btn {
+  padding: 4px 6px; /* ボタンを小さく */
+  font-size: 14px; /* 文字サイズも調整 */
+  min-width: 34px; /* 幅を小さく（重要） */
+  height: 36px; /* 高さ固定で均等に */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #f9f9f9;
+  cursor: pointer;
+  text-align: center;
+}
+
+.tile-btn:hover {
+  background: #eee;
+}
+
+.tile-btn:hover {
+  background: #eee;
+}
+
+/* ▼ 副露エリア（面前の下） */
+.furo-area {
+  padding: 10px;
+  background: #f4f4f4;
+  border-radius: 8px;
+  min-height: 60px;
+  margin-bottom: 20px;
+}
+
+.furo-area .tile-btn {
+  margin-right: 6px;
+}
+
+/* ▼ ボタン */
+.calc-btn {
+  width: 100%;
+  padding: 12px;
   font-size: 18px;
+  margin-top: 10px;
+  background: #4caf50;
+  border: none;
+  border-radius: 8px;
+  color: white;
+}
+
+.calc-btn:hover {
+  background: #45a049;
+}
+
+/* ▼ 結果表示 */
+.result-section {
+  margin-top: 20px;
+  padding: 10px;
+  background: #fafafa;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.input-mode {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  background: #eee;
+}
+
+.mode-btn.active {
+  background: #ffd54f;
+  border-color: #ffa000;
 }

@@ -10,94 +10,56 @@
     <div class="container">
       <h1>🀄 麻雀 自動点数計算アプリ</h1>
 
-      <!-- 牌選択エリア -->
-      <section class="tile-selector">
-        <h2>牌を選択</h2>
+      <!-- ▼ タブ -->
+      <div class="tile-tabs">
+        <button class="tab active" data-tab="manzu">マンズ</button>
+        <button class="tab" data-tab="pinzu">ピンズ</button>
+        <button class="tab" data-tab="souzu">ソーズ</button>
+        <button class="tab" data-tab="jihai">字牌</button>
+      </div>
 
-        <h3>🟥 マンズ</h3>
-        <div class="tiles">
-          <button class="tile-btn" data-tile="1m">1m</button>
-          <button class="tile-btn" data-tile="2m">2m</button>
-          <button class="tile-btn" data-tile="3m">3m</button>
-          <button class="tile-btn" data-tile="4m">4m</button>
-          <button class="tile-btn" data-tile="5m">5m</button>
-          <button class="tile-btn" data-tile="6m">6m</button>
-          <button class="tile-btn" data-tile="7m">7m</button>
-          <button class="tile-btn" data-tile="8m">8m</button>
-          <button class="tile-btn" data-tile="9m">9m</button>
-        </div>
+      <!-- ▼ 牌一覧 -->
+      <div id="tab-content" class="tiles"></div>
 
-        <h3>🟦 ピンズ</h3>
-        <div class="tiles">
-          <button class="tile-btn" data-tile="1p">1p</button>
-          <button class="tile-btn" data-tile="2p">2p</button>
-          <button class="tile-btn" data-tile="3p">3p</button>
-          <button class="tile-btn" data-tile="4p">4p</button>
-          <button class="tile-btn" data-tile="5p">5p</button>
-          <button class="tile-btn" data-tile="6p">6p</button>
-          <button class="tile-btn" data-tile="7p">7p</button>
-          <button class="tile-btn" data-tile="8p">8p</button>
-          <button class="tile-btn" data-tile="9p">9p</button>
-        </div>
+      <!-- 面前・副露選択ボタン -->
+      <h2>入力モード</h2>
+      <div class="input-mode">
+        <button id="mode-menzen" class="mode-btn active">面前</button>
+        <button id="mode-furo" class="mode-btn">副露</button>
+      </div>
 
-        <h3>🟩 ソーズ</h3>
-        <div class="tiles">
-          <button class="tile-btn" data-tile="1s">1s</button>
-          <button class="tile-btn" data-tile="2s">2s</button>
-          <button class="tile-btn" data-tile="3s">3s</button>
-          <button class="tile-btn" data-tile="4s">4s</button>
-          <button class="tile-btn" data-tile="5s">5s</button>
-          <button class="tile-btn" data-tile="6s">6s</button>
-          <button class="tile-btn" data-tile="7s">7s</button>
-          <button class="tile-btn" data-tile="8s">8s</button>
-          <button class="tile-btn" data-tile="9s">9s</button>
-        </div>
+      <!-- ▼ 面前 & ツモ -->
+      <h2>面前手牌 & ツモ牌</h2>
+      <div class="menzen-tsumo-row">
+        <div id="hand-all" class="tiles scroll-x"></div>
 
-        <h3>⬜ 字牌</h3>
-        <div class="tiles">
-          <button class="tile-btn" data-tile="東">東</button>
-          <button class="tile-btn" data-tile="南">南</button>
-          <button class="tile-btn" data-tile="西">西</button>
-          <button class="tile-btn" data-tile="北">北</button>
-          <button class="tile-btn" data-tile="白">白</button>
-          <button class="tile-btn" data-tile="發">發</button>
-          <button class="tile-btn" data-tile="中">中</button>
-        </div>
-      </section>
+        <div id="tsumo-tile" class="tsumo-area"></div>
+      </div>
 
-      <!-- ▼ 修正版：手牌表示エリア（1つだけ。種類順に整列表示） -->
-      <section class="hand-display">
-        <h2>選択した手牌</h2>
-        <div id="hand-all" class="tiles"></div>
-      </section>
+      <!-- ▼ 副露 -->
+      <h2>副露</h2>
+      <div id="furo-hand" class="furo-area"></div>
 
-      <!-- 和了方法 -->
-      <section>
-        <h2>和了方法</h2>
-        <label><input type="radio" name="winType" value="tsumo" /> ツモ</label>
-        <label><input type="radio" name="winType" value="ron" /> ロン</label>
-      </section>
+      <!-- ▼ 和了方法 -->
+      <h2>和了方法</h2>
+      <label><input type="radio" name="winType" value="tsumo" /> ツモ</label>
+      <label><input type="radio" name="winType" value="ron" /> ロン</label>
 
-      <!-- 親 / 子 -->
-      <section>
-        <h2>親 / 子</h2>
-        <label><input type="radio" name="player" value="oya" /> 親</label>
-        <label><input type="radio" name="player" value="ko" /> 子</label>
-      </section>
+      <!-- ▼ 親 / 子 -->
+      <h2>親 / 子</h2>
+      <label><input type="radio" name="player" value="oya" /> 親</label>
+      <label><input type="radio" name="player" value="ko" /> 子</label>
 
-      <!-- 自動解析 -->
-      <section class="auto-analysis">
-        <h2>解析結果</h2>
-        <p id="yakuResult">役：ー</p>
-        <p id="hanResult">翻数：ー</p>
-        <p id="fuResult">符：ー</p>
-      </section>
+      <!-- ▼ 解析結果 -->
+      <h2>解析結果</h2>
+      <p id="yakuResult">役：ー</p>
+      <p id="hanResult">翻数：ー</p>
+      <p id="fuResult">符：ー</p>
 
-      <!-- 計算 -->
-      <section>
-        <button id="calcBtn">点数を計算する</button>
-      </section>
+      <!-- ▼ 計算ボタン -->
+      <button id="calcBtn" class="calc-btn">点数を計算する</button>
 
+      <!-- ▼ 結果 -->
       <section class="result-section">
         <h2>結果</h2>
         <p id="scoreResult">ここに点数が表示されます</p>
